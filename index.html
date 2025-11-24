@@ -134,7 +134,7 @@ function playBeep() {
     beepSound.play().catch(()=>{});
 }
 
-function typeLine(line, speed = 18) {
+function typeLine(line, speed = 20) {
     return new Promise(resolve => {
         let i = 0;
         function typing() {
@@ -165,7 +165,7 @@ async function typeBirthdayText() {
         for (let i = 0; i < line.length; i++) {
             span.textContent += line[i];
             playBeep();
-            await new Promise(r => setTimeout(r, 20));
+            await new Promise(r => setTimeout(r, 30));
         }
 
         screen.appendChild(document.createElement("br"));
@@ -191,7 +191,7 @@ async function typeMain() {
     for (const char of mainMessage) {
         screen.innerHTML += char;
         playBeep();
-        await new Promise(r => setTimeout(r, 8));
+        await new Promise(r => setTimeout(r, 14));
     }
 }
 
@@ -199,7 +199,7 @@ async function start() {
     playBoot();
 
     for (const line of bootLines) {
-        await typeLine(line, 10);
+        await typeLine(line, 20);
     }
 
     screen.innerHTML += "<br>[OK] Launching birthday payload...<br><br>";
